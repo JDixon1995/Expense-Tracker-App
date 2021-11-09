@@ -7,7 +7,8 @@ const TransactionList = () => {
 
   useEffect(() => {
     getTransactions()
-  }, [])
+    // eslint-disable-next-line
+  },[])
 
     return (
         <>

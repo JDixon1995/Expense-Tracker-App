@@ -21,17 +21,17 @@ export const GlobalProvider = ( {children} ) => {
 
     async function getTransactions() {
         try {
-            const res = await axios.get('/api/v1/transactions')
+            const res = await axios.get('api/v1/transactions')
 
             dispatch({
                 type: 'GET_TRANSACTIONS',
                 payload: res.data.data
-            })
-        } catch (err) {
+            });
+        } catch (error) {
             dispatch({
-                type: 'TRANSACTION_ERROR', 
-                payload: err.response.data.error
-            })
+                type: 'TRANSACTION_ERROR',
+                payload: error.resonse.data.error
+            });
         }
     }
 
