@@ -19,23 +19,6 @@ export const GlobalProvider = ( {children} ) => {
 
     //Actions
 
-    async function getTransactions() {
-        try {
-            const res = await axios.get('api/v1/transactions')
-
-            dispatch({
-                type: 'GET_TRANSACTIONS',
-                payload: res.data.data
-            });
-        } catch (error) {
-            dispatch({
-                type: 'TRANSACTION_ERROR',
-                payload: error.resonse.data.error
-            });
-        }
-    }
-
-
     function deleteTransaction(id) {
         dispatch({
             type: 'DELETE_TRANSACTION',
@@ -54,7 +37,6 @@ export const GlobalProvider = ( {children} ) => {
         transactions: state.transactions,
         error: state.error,
         loading: state.loading,
-        getTransactions,
         deleteTransaction,
         addTransaction
     }}>
